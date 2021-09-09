@@ -2,4 +2,6 @@
 
 implement a simple Vue Tabs component:
 
-include <Tabs> <Tabpane>
+include components:
+* `Tabs` 
+* `Tabpane`
