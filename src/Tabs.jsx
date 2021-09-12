@@ -24,15 +24,16 @@ export default {
     this.renderPane()
     this.currentName = this.panes[0].label
   },
-  render() {
+  render(h) {
     const { panes, currentName, setCurrentName } = this
     const { default: slotsDefault} = this.$slots
 
-    console.log('panes', panes)
     return (<div>
-      <ul style="display: flex">
+      <ul class="tab">
         { panes && panes.map(pane => {
-          return (<li style={{ cursor: 'pointer', width: '100px', textAlign: 'center', color: currentName === pane.label ? 'blue' : 'black' }} onClick={() => setCurrentName(pane.label)}>{ pane.label }</li>)
+          return (<li style="cursor: pointer" class={['tab-item', {'active': currentName === pane.label}]} onClick={() => setCurrentName(pane.label)}>
+            <a>{pane.label}</a>
+          </li>)
         }) }
       </ul>
       <div class="content" style="text-align: left; margin-top: 14px;">
