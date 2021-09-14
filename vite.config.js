@@ -34,11 +34,21 @@ export default defineConfig({
   optimizeDeps: { // 要预构建的第三方依赖
     include: []
   },
-  build: {
-    lib: {
-        entry: './src/main.js'
-      }
-  },
+  // build: {
+    // lib: {
+    //     entry: './src/main.js',
+    //     name: ''
+    //   }
+  // },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       entryFileNames: `[name].[contenthash].js`,
+  //       chunkFileNames: `[name].[contenthash].js`,
+  //       assetFileNames: `[name].[contenthash].[ext]`
+  //     }
+  //   }
+  // },
   resolve: {
     alias: {
       // 'vue': 'vue/dist/vue.esm.js', // 如果是模板解析的 - 使用这个 vue：内部为正则表达式  vue 结尾的
@@ -64,6 +74,7 @@ export default defineConfig({
           options: {
             isVite: true,
             shotcut: '/static/img/favicon.png',
+            inject: true
           }
         },
         title: 'HMO 运营后台',
